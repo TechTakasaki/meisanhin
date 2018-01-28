@@ -1,23 +1,15 @@
-<% if logged_in? %>
-  <div class="cover">
-    <div class="cover-inner">
-      <div class="cover-contents">
-        <h1>全国の名産品をレビューしよう</h1>
-        <p>広島のもみじ饅頭や京都の八ッ橋・高知のカツオなど、全国各地には様々な名産品があります。<br />
-        ここでは、今までに味わった名産品をレビューすることができます。</p>
-        <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
-      </div>
+<div class="cover">
+  <div class="cover-inner">
+    <div class="cover-contents">
+      <h1>全国の名産品をレビューしよう</h1>
+      <p>広島のもみじ饅頭や京都の八ッ橋・高知のカツオなど、全国各地には様々な名産品があります。<br />
+      ここでは、今までに味わった名産品をレビューすることができます。
+      <br />
+      <br />北海道・東北・関東...と、地方ごとに分かれてあります。
+      </p>
+      <ul class="localfood">
+        <li><%= link_to '北海道', hokkaidos_path, class: 'btn btn-lg btn-primary' %></li>
+      </ul>
     </div>
   </div>
-<% else %>
-  <div class="cover">
-    <div class="cover-inner">
-      <div class="cover-contents">
-        <h1>全国の名産品をレビューしよう</h1>
-        <p>広島のもみじ饅頭や京都の八ッ橋・高知のカツオなど、全国各地には様々な名産品があります。<br />
-        ここでは、今までに味わった名産品をレビューすることができます。</p>
-        <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
-      </div>
-    </div>
-  </div>
-<% end %>
+</div>

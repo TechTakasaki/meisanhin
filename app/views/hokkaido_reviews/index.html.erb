@@ -1,0 +1,38 @@
+<div class="area hokkaido">
+  <ul class="media-list">
+    <div>
+      <h1><%= @hokkaido.title %></h1>
+      <img border="0" src="/images/<%= @hokkaido.image_url %>" class="sample" width = "300" height = "225">
+      <br /><br />
+      <div>
+        <%= link_to 'レビューする', new_hokkaido_hokkaido_review_path(@hokkaido, @hokkaido_review), class: 'btn btn-primary' %>
+      </div>
+    </div><br />
+    <div class="panel panel-default">
+      <h2>レビュー一覧</h2>
+      <% @hokkaido_reviews.each do |hokkaido_review| %>
+        <% user = hokkaido_review.user %>
+        <li class="media">
+          <div class="media-left">
+            <img class="media-object img-rounded" src="<%= gravatar_url(hokkaido_review.user, options = { size: 50 }) %>" alt="">
+          </div>
+          <div class="media-body">
+            <div>
+              <%= link_to user.name, user_path(user) %> <span class="text-muted">posted at <%= hokkaido_review.created_at %></span>
+            </div>
+            <div>
+              <p>評価：<%= hokkaido_review.evaluation %></p>
+              <p><%= hokkaido_review.content %></p>
+            </div>
+            <div>
+              <% if current_user == hokkaido_review.user %>
+                <%= link_to 'このレビューを削除する', hokkaido_review, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger btn-xs' %>
+              <% end %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </div>
+    <%= paginate @hokkaido_reviews %>
+  </ul>
+</div>

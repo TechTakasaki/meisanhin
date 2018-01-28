@@ -1,0 +1,33 @@
+<div class="area hokkaido">
+  <h1>北海道の商品一覧</h1>
+
+  <div class="panel panel-default">
+    <br /><p>ここには、口コミを書くことのできる商品が用意されています。<br />惣菜は、管理人が用意するので、面倒な手間は必要ありません。</p>
+
+    <ul class="media-list">
+      <% @hokkaidos.each do |hokkaido| %>
+        <div class="row">
+          <aside class="col-xs-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <li class="media">
+                  <div>
+                    <%= hokkaido.id %> : <%= link_to hokkaido.title, hokkaido %>
+                  </div>
+                  <br />
+                  <div>
+                    <%= hokkaido.content %>
+                  </div>
+                  <div>
+                    <%= image_tag(hokkaido.image_url,:size =>"200x150") %>
+                  </div>
+                </li>
+              </div>
+            </div>
+          </aside>
+        </div>
+      <% end %>
+      <%= paginate @hokkaidos %>
+    </ul>
+  </div>
+</div>

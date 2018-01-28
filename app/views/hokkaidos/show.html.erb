@@ -1,0 +1,19 @@
+<div class="area hokkaido">
+  <h1><%= @hokkaido.title %></h1>
+  <ul class="media-list">
+    <div class="row">
+      <aside class="col-xs-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <li class="media">
+              <img border="0" src="/images/<%= @hokkaido.image_url %>" class="sample" width = "480" height = "320">
+              <h2>商品情報</h2>
+              <p><%= @hokkaido.content %></p>
+              <%= link_to 'レビュー一覧', hokkaido_hokkaido_reviews_path(@hokkaido, @hokkaido_review), class: 'btn btn-primary' %>
+            </li>
+          </div>  
+        </div>
+      </aside>
+    </div>
+  </ul>
+</div>

@@ -1,0 +1,24 @@
+<div class="area hokkaido">
+  <h1><%= @hokkaido.title %></h1>
+  <ul class="media-list">
+    <div class="row">
+      <aside class="col-xs-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <li class="media">
+              <h2>レビューを投稿する</h2>
+              <%= form_for ([@hokkaido, @hokkaido_review]) do |f| %>
+                <%= f.label :evaluation, '評価(1~5)' %>
+                <%= f.text_field :evaluation, class: 'form-control', rows: 2 %>
+                <%= f.label :content, 'レビュー' %>
+                <%= f.text_area :content, class: 'form-control', rows: 5 %>
+                <br />
+                <%= f.submit '投稿' , class: 'btn btn-success btn-lg'%>
+              <% end %>
+            </li>
+          </div>  
+        </div>
+      </aside>
+    </div>
+  </ul>
+</div>
