@@ -1,0 +1,19 @@
+<div class="area kantou">
+  <h1><%= @kantou.title %></h1>
+  <ul class="media-list">
+    <div class="row">
+      <aside class="col-xs-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <li class="media">
+              <img border="0" src="/images/<%= @kantou.image_url %>" class="sample" width = "480" height = "320">
+              <h2>商品情報</h2>
+              <p><%= @kantou.content %></p>
+              <%= link_to 'レビュー一覧', kantou_kantou_reviews_path(@kantou, @kantou_review), class: 'btn btn-primary' %> <span class="badge">レビュー：<%= @count_kantou_reviews %>件</span>
+            </li>
+          </div>  
+        </div>
+      </aside>
+    </div>
+  </ul>
+</div>

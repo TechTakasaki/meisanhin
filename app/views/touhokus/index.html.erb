@@ -1,0 +1,32 @@
+<div class="area touhoku">
+  <h1>東北の商品一覧</h1>
+
+  <div class="panel panel-default">
+    <br /><p>ここには、東北エリアの。名産品が並んでいます。<br />仙台名物笹かまぼこ・牛タン、秋田名物きりたんぽなどがあります。</p>
+  </div>
+  <ul class="media-list">
+    <% @touhokus.each do |touhoku| %>
+      <div class="row">
+        <aside class="col-xs-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <li class="media">
+                <div>
+                  <%= touhoku.id %> : <%= link_to touhoku.title, touhoku %>
+                </div>
+                <br />
+                <div>
+                  <%= touhoku.content %>
+                </div>
+                <div>
+                  <%= image_tag(touhoku.image_url,:size =>"200x150") %>
+                </div>
+              </li>
+            </div>
+          </div>
+        </aside>
+      </div>
+    <% end %>
+    <%= paginate @touhokus %>
+  </ul>
+</div>

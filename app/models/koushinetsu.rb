@@ -1,0 +1,2 @@
+class Koushinetsu < ApplicationRecord
+end

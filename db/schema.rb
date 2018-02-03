@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180128020922) do
+ActiveRecord::Schema.define(version: 20180203123455) do
 
   create_table "hokkaido_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content"
@@ -31,6 +31,52 @@ ActiveRecord::Schema.define(version: 20180128020922) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "kantou_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "content"
+    t.string   "evaluation"
+    t.integer  "user_id"
+    t.integer  "kantou_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["kantou_id"], name: "index_kantou_reviews_on_kantou_id", using: :btree
+    t.index ["user_id"], name: "index_kantou_reviews_on_user_id", using: :btree
+  end
+
+  create_table "kantous", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.string   "content"
+    t.string   "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "koushinetsus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "content"
+    t.string   "title"
+    t.string   "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "touhoku_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "content"
+    t.string   "evaluation"
+    t.integer  "user_id"
+    t.integer  "touhoku_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["touhoku_id"], name: "index_touhoku_reviews_on_touhoku_id", using: :btree
+    t.index ["user_id"], name: "index_touhoku_reviews_on_user_id", using: :btree
+  end
+
+  create_table "touhokus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.string   "content"
+    t.string   "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "email"
@@ -43,4 +89,8 @@ ActiveRecord::Schema.define(version: 20180128020922) do
 
   add_foreign_key "hokkaido_reviews", "hokkaidos"
   add_foreign_key "hokkaido_reviews", "users"
+  add_foreign_key "kantou_reviews", "kantous"
+  add_foreign_key "kantou_reviews", "users"
+  add_foreign_key "touhoku_reviews", "touhokus"
+  add_foreign_key "touhoku_reviews", "users"
 end

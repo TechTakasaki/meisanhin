@@ -56,6 +56,56 @@ footer {
 .cover .cover-inner .cover-contents p {
   color: #fff;
 }
+.panel-title {
+  color: #ffffff;
+	font-size: 24px;
+	line-height: 20px;
+	position: relative;
+	padding: 10px;
+	background: #000000;
+	box-shadow: 10px 0 0 0 #000000, -10px 0 0 0 #000000, 0 3px 3px 0 rgba(0,0,0,0.1);
+}
+.panel-title:before {
+	content: " ";
+	position: absolute;
+	top: 100%;
+	left: -10px;
+	width: 0;
+	height: 0;
+	border-width: 0 10px 10px 0;
+	border-style: solid;
+	border-color: transparent;
+	border-right-color: #4f4f4f;
+}
+.panel-title:after {
+	content: " ";
+	position: absolute;
+	top: 100%;
+	right: -10px;
+	width: 0;
+	height: 0;
+	border-width: 10px 10px 0 0;
+	border-style: solid;
+	border-color: transparent;
+	border-top-color: #4f4f4f;
+}
+.panel-h2 {
+	font-size: 16px;
+	line-height: 20px;
+	padding: .5em 0 .5em 1.5em;
+	position: relative;
+	background: #ffffff;
+	border: 1px solid #000000;
+}
+.panel-h2:after {
+	content: " ";
+	position: absolute;
+	top: .5em;
+	left: .5em;
+	width: 6px;
+	height: calc(100% - 1em);
+	background: #000000;
+}
 .area {
   padding: 10px;
   background: #ffffff;
@@ -117,5 +167,11 @@ footer {
 	background: #000000;
 }
 .hokkaido{
-  background-color:#ADFF2F;
+  background-color: #ADFF2F;
+}
+.touhoku{
+  background-color: #008000;
+}
+.kantou{
+  background-color: #008000;
 }

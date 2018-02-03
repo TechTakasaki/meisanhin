@@ -12,6 +12,11 @@
         <%= f.label :name, '名前' %>
         <%= f.text_field :name, class: 'form-control' %>
       </div>
+      
+      <div>
+        <input type="radio" name="sex" value="男性" checked> 男性
+        <input type="radio" name="sex" value="女性"> 女性
+      </div>
 
       <div class="form-group">
         <%= f.label :email, 'メール' %>

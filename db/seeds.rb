@@ -1,2 +1,3 @@
-Hokkaido.create(:image_url => "いかめし.jpg", :title => "いかめし", :content => "函館の名産品であるイカにもち米を入れました。イカの歯ごたえともち米の艶がやみつきになります。")
-Hokkaido.create(:image_url => "マルセイバターサンド.jpg", :title => "マルセイバターサンド", :content => "六花亭オリジナルの小麦粉で作られたビスケットで、北海道産生乳100%のバターを仕込んだクリームを挟みました。")
+Kantou.create(:image_url => "五家宝.jpg", :title => "五家宝", :content => "現在の五家宝は、熊谷出身の方が改良しました。")
+Kantou.create(:image_url => "人形焼き.jpg", :title => "人形焼", :content => "浅草と言えばコレ！小豆餡とモチモチ感のある生地という素朴な味は、昔から変わりません。")
+Kantou.create(:image_url => "シウマイ.jpg", :title => "シウマイ", :content => "横浜中華街のシウマイを、ご家庭で是非ご賞味ください。")
