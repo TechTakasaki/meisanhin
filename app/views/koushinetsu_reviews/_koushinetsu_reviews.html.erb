@@ -1,0 +1,34 @@
+<div class="area koushinetsu">
+  <ul class="media-list">
+    <div>
+      <%= link_to 'レビューする', new_koushinetsu_koushinetsu_review_path(@koushinetsu, @koushinetsu_review), class: 'btn btn-primary' %>
+    </div>
+    </div><br />
+    <div class="panel panel-default">
+      <h2>レビュー一覧</h2>
+      <% @koushinetsu_reviews.each do |koushinetsu_review| %>
+        <% user = koushinetsu_review.user %>
+        <li class="media">
+          <div class="media-left">
+            <img class="media-object img-rounded" src="<%= gravatar_url(kantou_review.user, options = { size: 50 }) %>" alt="">
+          </div>
+          <div class="media-body">
+            <div>
+              <%= link_to user.name, user_path(user) %> <span class="text-muted">posted at <%= koushinetsu_review.created_at %></span>
+            </div>
+            <div>
+              <p>評価：<%= koushinetsu_review.evaluation %></p>
+              <p><%= koushinetsu_review.content %></p>
+            </div>
+            <div>
+              <% if current_user == koushinetsu_review.user %>
+                <%= link_to 'このレビューを削除する', koushinetsu_review, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger btn-xs' %>
+              <% end %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </div>
+    <%= paginate @koushinetsu_reviews %>
+  </ul>
+</div>

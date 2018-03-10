@@ -8,4 +8,8 @@ class KantousController < ApplicationController
     @kantou_reviews = @kantou.kantou_reviews.order('created_at DESC').page(params[:page])
     counts(@kantou)
   end
+  
+  def counts(kantou)
+    @count_kantou_reviews = kantou.kantou_reviews.count
+  end
 end

@@ -9,6 +9,9 @@
               <img border="0" src="/images/<%= @hokkaido.image_url %>" class="sample" width = "480" height = "320">
               <h2>商品情報</h2>
               <p><%= @hokkaido.content %></p>
+              <div>
+              <p><span class="badge">平均評価：<%= @average_hokkaido_reviews[@hokkaido.id] %></span></p>
+              </div>
               <%= link_to 'レビュー一覧', hokkaido_hokkaido_reviews_path(@hokkaido, @hokkaido_review), class: 'btn btn-primary' %> <span class="badge">レビュー：<%= @count_hokkaido_reviews %>件</span>
             </li>
           </div>  

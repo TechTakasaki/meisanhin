@@ -10,16 +10,4 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
-  
-  def counts(hokkaido)
-    @count_hokkaido_reviews = hokkaido.hokkaido_reviews.count
-  end
-  
-  def counts(touhoku)
-    @count_touhoku_reviews = touhoku.touhoku_reviews.count
-  end
-  
-  def counts(kantou)
-    @count_kantou_reviews = kantou.kantou_reviews.count
-  end
 end

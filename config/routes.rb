@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   resources :users
   
-  resources :hokkaidos, only: [:index, :show, :destroy] , shallow: true do
+  resources :hokkaidos, only: [:index, :show, :count] , shallow: true do
     resources :hokkaido_reviews, only: [:index, :new, :create, :destroy]
   end
   
@@ -18,5 +18,9 @@ Rails.application.routes.draw do
   
   resources :kantous, only: [:index, :show], shallow: true do
     resources :kantou_reviews, only: [:index, :new, :create, :destroy]
+  end
+  
+  resources :koushinetsus, only: [:index, :show], shallow: true do
+    resources :koushinetsu_reviews, only: [:index, :new, :create, :destroy]
   end
 end

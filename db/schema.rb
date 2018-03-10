@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180203123455) do
+ActiveRecord::Schema.define(version: 20180204121609) do
 
   create_table "hokkaido_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content"
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(version: 20180203123455) do
     t.string   "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "koushinetsu_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "content"
+    t.string   "evaluation"
+    t.integer  "user_id"
+    t.integer  "koushinetsu_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["koushinetsu_id"], name: "index_koushinetsu_reviews_on_koushinetsu_id", using: :btree
+    t.index ["user_id"], name: "index_koushinetsu_reviews_on_user_id", using: :btree
   end
 
   create_table "koushinetsus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -91,6 +102,8 @@ ActiveRecord::Schema.define(version: 20180203123455) do
   add_foreign_key "hokkaido_reviews", "users"
   add_foreign_key "kantou_reviews", "kantous"
   add_foreign_key "kantou_reviews", "users"
+  add_foreign_key "koushinetsu_reviews", "koushinetsus"
+  add_foreign_key "koushinetsu_reviews", "users"
   add_foreign_key "touhoku_reviews", "touhokus"
   add_foreign_key "touhoku_reviews", "users"
 end

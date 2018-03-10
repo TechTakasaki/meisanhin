@@ -1,8 +1,8 @@
-class KantouReview < ApplicationRecord
+class KoushinetsuReview < ApplicationRecord
   belongs_to :user
-  belongs_to :kantou
+  belongs_to :koushinetsu
   
   validates :user_id, presence: true
-  validates :kantou_id, presence: true
+  validates :koushinetsu_id, presence: true
   validates :content, presence: true, length: { maximum: 255 }
 end

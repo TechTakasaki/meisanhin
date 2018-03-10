@@ -1,0 +1,32 @@
+<div class="area koushinetsu">
+  <h1甲信越の商品一覧</h1>
+
+  <div class="panel panel-default">
+    <br /><p>ここには、甲信越エリアの。名産品が並んでいます。<br />山梨名物ほうとうや、新潟名物笹だんごなどがあります。</p>
+  </div>
+  <ul class="media-list">
+    <% @koushinetsus.each do |koushinetsu| %>
+      <div class="row">
+        <aside class="col-xs-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <li class="media">
+                <div>
+                  <%= koushinetsu.id %> : <%= link_to koushinetsu.title, koushinetsu %>
+                </div>
+                <br />
+                <div>
+                  <%= koushinetsu.content %>
+                </div>
+                <div>
+                  <%= image_tag(koushinetsu.image_url,:size =>"200x150") %>
+                </div>
+              </li>
+            </div>
+          </div>
+        </aside>
+      </div>
+    <% end %>
+    <%= paginate @koushinetsus %>
+  </ul>
+</div>

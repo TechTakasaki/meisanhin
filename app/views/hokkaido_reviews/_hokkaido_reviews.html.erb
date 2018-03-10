@@ -8,7 +8,7 @@
       <h2>レビュー一覧</h2>
       <% @hokkaido_reviews.each do |hokkaido_review| %>
         <% user = hokkaido_review.user %>
-        <li class="media">
+        <div class="media">
           <div class="media-left">
             <img class="media-object img-rounded" src="<%= gravatar_url(hokkaido_review.user, options = { size: 50 }) %>" alt="">
           </div>
@@ -26,7 +26,7 @@
               <% end %>
             </div>
           </div>
-        </li>
+        </div>
       <% end %>
     </div>
     <%= paginate @hokkaido_reviews %>
