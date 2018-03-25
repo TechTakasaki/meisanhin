@@ -1,0 +1,32 @@
+<div class="area kansai">
+  <h1>関西の商品一覧</h1>
+
+  <div class="panel panel-default">
+    <br /><p>ここには、関西エリアの名産品が並んでいます。<br />京都を代表する和菓子や、関西風の桜餅「道明寺」などがあります。</p>
+  </div>
+  <ul class="media-list">
+    <% @kansais.each do |kansai| %>
+      <div class="row">
+        <aside class="col-xs-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <li class="media">
+                <div>
+                  <%= link_to kansai.title, kansai %>
+                </div>
+                <br />
+                <div>
+                  <%= kansai.content %>
+                </div>
+                <div>
+                  <%= image_tag(kansai.image_url,:size =>"200x150") %>
+                </div>
+              </li>
+            </div>
+          </div>
+        </aside>
+      </div>
+    <% end %>
+    <%= paginate @kansais %>
+  </ul>
+</div>

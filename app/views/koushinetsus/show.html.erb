@@ -9,6 +9,13 @@
               <img border="0" src="/images/<%= @koushinetsu.image_url %>" class="sample" width = "480" height = "320">
               <h2>商品情報</h2>
               <p><%= @koushinetsu.content %></p>
+              <p>製造元：<%= @koushinetsu.maker %></p>
+              <p>ホームページ：<a href="<%= @koushinetsu.hp_url %>"><%= @koushinetsu.maker %></a></p>
+              <br /><br />
+              <div style='width: 100%;'>
+                <div id="map" style='width: 100%; height: 45vh;'></div>
+              </div>
+              <p><span class="badge">平均評価：<%= @average_koushinetsu_reviews[@koushinetsu.id] %></span></p>
               <%= link_to 'レビュー一覧', koushinetsu_koushinetsu_reviews_path(@koushinetsu, @koushinetsu_review), class: 'btn btn-primary' %> <span class="badge">レビュー：<%= @count_koushinetsu_reviews %>件</span>
             </li>
           </div>  
@@ -17,3 +24,22 @@
     </div>
   </ul>
 </div>
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers([
+      {
+        "lat": <%= @koushinetsu.latitude %>,
+        "lng": <%= @koushinetsu.longitude %>,
+        "picture": {
+          "width":  32,
+          "height": 32
+        },
+        "infowindow": '<%= @koushinetsu.title %>'
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(15);
+  });
+</script>

@@ -1,0 +1,33 @@
+<div class="area sanin">
+  <ul class="media-list">
+    <div>
+      <%= link_to 'レビューする', new_sanin_sanin_review_path(@sanin, @sanin_review), class: 'btn btn-primary' %>
+    </div><br />
+    <div class="panel panel-default">
+      <h2>レビュー一覧</h2>
+      <% @sanin_reviews.each do |sanin_review| %>
+        <% user = sanin_review.user %>
+        <li class="media">
+          <div class="media-left">
+            <img class="media-object img-rounded" src="<%= gravatar_url(sanin_review.user, options = { size: 50 }) %>" alt="">
+          </div>
+          <div class="media-body">
+            <div>
+              <%= link_to user.name, user_path(user) %> <span class="text-muted">posted at <%= sanin_review.created_at %></span>
+            </div>
+            <div>
+              <p>評価：<%= sanin_review.evaluation %></p>
+              <p><%= sanin_review.content %></p>
+            </div>
+            <div>
+              <% if current_user == sanin_review.user %>
+                <%= link_to 'このレビューを削除する', sanin_review, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger btn-xs' %>
+              <% end %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </div>
+    <%= paginate @sanin_reviews %>
+  </ul>
+</div>

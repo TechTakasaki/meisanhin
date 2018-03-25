@@ -1,4 +1,3 @@
-Koushinetsu.create(:image_url => "おやき.jpg", :title => "おやき", :content => "野沢菜の餡を、そば粉で出来た皮で包みました。")
-Koushinetsu.create(:image_url => "ほうとう.jpg", :title => "ほうとう", :content => "かぼちゃと味噌で仕立てた汁に、太めのうどんを絡ませました。体が温まる一品です。")
-Koushinetsu.create(:image_url => "信州そば.jpg", :title => "信州そば", :content => "長野県では、全国で最初にそば粉の生産が行われた所です。昼夜の気温差が大きいので、旨みが凝縮されています。")
-Koushinetsu.create(:image_url => "笹団子.jpg", :title => "笹団子", :content => "餡の入ったヨモギ団子を、数枚の笹の葉で包みました。現在は海外にも輸出されています。")
+Sanin.create(:image_url => "因幡の白うさぎ.jpg", :title => "因幡の白うさぎ", :content => "出雲神話に登場する「因幡の白うさぎ」を模った、地元産のバターを使ったうさぎ饅頭です。", :maker => "寿製菓" , :hp_url => "http://www.okashinet.co.jp", :latitude => 35.4353, :longitude => 133.3129)
+Sanin.create(:image_url => "出雲そば.jpg", :title => "出雲そば", :content => "出雲の食文化を代表する物で、殻の付いたそばの実をそのまま製粉するため、通常のそばより黒っぽいです。")
+Sanin.create(:image_url => "さざえのへか.jpg", :title => "さざえのへか", :content => "牛肉の代わりにさざえを使った、すき焼き風の料理です。隠岐の島ではさざえが豊富に獲れます。")

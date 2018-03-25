@@ -23,4 +23,24 @@ Rails.application.routes.draw do
   resources :koushinetsus, only: [:index, :show], shallow: true do
     resources :koushinetsu_reviews, only: [:index, :new, :create, :destroy]
   end
+  
+  resources :toukais, only: [:index, :show], shallow: true do
+    resources :toukai_reviews, only: [:index, :new, :create, :destroy]
+  end
+  
+  resources :hokurikus, only: [:index, :show], shallow: true do
+    resources :hokuriku_reviews, only: [:index, :new, :create, :destroy]
+  end
+  
+  resources :kansais, only: [:index, :show], shallow: true do
+    resources :kansai_reviews, only: [:index, :new, :create, :destroy]
+  end
+  
+  resources :sanyos, only: [:index, :show], shallow: true do
+    resources :sanyo_reviews, only: [:index, :new, :create, :destroy]
+  end
+  
+  resources :sanins, only: [:index, :show], shallow: true do
+    resources :sanin_reviews, only: [:index, :new, :create, :destroy]
+  end
 end

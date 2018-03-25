@@ -9,6 +9,13 @@
               <img border="0" src="/images/<%= @kantou.image_url %>" class="sample" width = "480" height = "320">
               <h2>商品情報</h2>
               <p><%= @kantou.content %></p>
+              <p>製造元：<%= @kantou.maker %></p>
+              <p>ホームページ：<a href="<%= @kantou.hp_url %>"><%= @kantou.maker %></a></p>
+              <br /><br />
+              <div style='width: 100%;'>
+                <div id="map" style='width: 100%; height: 45vh;'></div>
+              </div>
+              <p><span class="badge">平均評価：<%= @average_kantou_reviews[@kantou.id] %></span></p>
               <%= link_to 'レビュー一覧', kantou_kantou_reviews_path(@kantou, @kantou_review), class: 'btn btn-primary' %> <span class="badge">レビュー：<%= @count_kantou_reviews %>件</span>
             </li>
           </div>  
@@ -17,3 +24,22 @@
     </div>
   </ul>
 </div>
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers([
+      {
+        "lat": <%= @kantou.latitude %>,
+        "lng": <%= @kantou.longitude %>,
+        "picture": {
+          "width":  32,
+          "height": 32
+        },
+        "infowindow": '<%= @kantou.title %>'
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(15);
+  });
+</script>

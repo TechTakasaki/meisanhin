@@ -1,0 +1,45 @@
+<div class="area sanyo">
+  <h1><%= @sanyo.title %></h1>
+  <ul class="media-list">
+    <div class="row">
+      <aside class="col-xs-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <li class="media">
+              <img border="0" src="/images/<%= @sanyo.image_url %>" class="sample" width = "480" height = "320">
+              <h2>商品情報</h2>
+              <p><%= @sanyo.content %></p>
+              <p>製造元：<%= @sanyo.maker %></p>
+              <p>ホームページ：<a href="<%= @sanyo.hp_url %>"><%= @sanyo.maker %></a></p>
+              <br /><br />
+              <div style='width: 100%;'>
+                <div id="map" style='width: 100%; height: 45vh;'></div>
+              </div>
+              <p><span class="badge">平均評価：<%= @average_sanyo_reviews[@sanyo.id] %></span></p>
+              <%= link_to 'レビュー一覧', sanyo_sanyo_reviews_path(@sanyo, @sanyo_review), class: 'btn btn-primary' %> <span class="badge">レビュー：<%= @count_sanyo_reviews %>件</span>
+            </li>
+          </div>  
+        </div>
+      </aside>
+    </div>
+  </ul>
+</div>
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers([
+      {
+        "lat": <%= @sanyo.latitude %>,
+        "lng": <%= @sanyo.longitude %>,
+        "picture": {
+          "width":  32,
+          "height": 32
+        },
+        "infowindow": '<%= @sanyo.title %>'
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(15);
+  });
+</script>

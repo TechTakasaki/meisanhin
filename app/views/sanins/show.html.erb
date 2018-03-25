@@ -1,0 +1,45 @@
+<div class="area sanin">
+  <h1><%= @sanin.title %></h1>
+  <ul class="media-list">
+    <div class="row">
+      <aside class="col-xs-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <li class="media">
+              <img border="0" src="/images/<%= @sanin.image_url %>" class="sample" width = "480" height = "320">
+              <h2>商品情報</h2>
+              <p><%= @sanin.content %></p>
+              <p>製造元：<%= @sanin.maker %></p>
+              <p>ホームページ：<a href="<%= @sanin.hp_url %>"><%= @sanin.maker %></a></p>
+              <br /><br />
+              <div style='width: 100%;'>
+                <div id="map" style='width: 100%; height: 45vh;'></div>
+              </div>
+              <p><span class="badge">平均評価：<%= @average_sanin_reviews[@sanin.id] %></span></p>
+              <%= link_to 'レビュー一覧', sanin_sanin_reviews_path(@sanin, @sanin_review), class: 'btn btn-primary' %> <span class="badge">レビュー：<%= @count_sanin_reviews %>件</span>
+            </li>
+          </div>  
+        </div>
+      </aside>
+    </div>
+  </ul>
+</div>
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers([
+      {
+        "lat": <%= @sanin.latitude %>,
+        "lng": <%= @sanin.longitude %>,
+        "picture": {
+          "width":  32,
+          "height": 32
+        },
+        "infowindow": '<%= @sanin.title %>'
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(15);
+  });
+</script>

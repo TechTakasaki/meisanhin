@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204121609) do
+ActiveRecord::Schema.define(version: 20180324073347) do
 
   create_table "hokkaido_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content"
     t.integer  "user_id"
     t.integer  "hokkaido_id"
+    t.integer  "evaluation"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "evaluation"
     t.index ["hokkaido_id"], name: "index_hokkaido_reviews_on_hokkaido_id", using: :btree
     t.index ["user_id"], name: "index_hokkaido_reviews_on_user_id", using: :btree
   end
@@ -27,13 +27,63 @@ ActiveRecord::Schema.define(version: 20180204121609) do
     t.string   "content"
     t.string   "title"
     t.string   "image_url"
+    t.float    "latitude",   limit: 24
+    t.float    "longitude",  limit: 24
+    t.string   "hp_url"
+    t.string   "maker"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "hokuriku_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "content"
+    t.integer  "evaluation"
+    t.integer  "user_id"
+    t.integer  "hokuriku_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["hokuriku_id"], name: "index_hokuriku_reviews_on_hokuriku_id", using: :btree
+    t.index ["user_id"], name: "index_hokuriku_reviews_on_user_id", using: :btree
+  end
+
+  create_table "hokurikus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "content"
+    t.string   "title"
+    t.string   "image_url"
+    t.float    "latitude",   limit: 24
+    t.float    "longitude",  limit: 24
+    t.string   "hp_url"
+    t.string   "maker"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "kansai_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "content"
+    t.integer  "evaluation"
+    t.integer  "user_id"
+    t.integer  "kansai_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["kansai_id"], name: "index_kansai_reviews_on_kansai_id", using: :btree
+    t.index ["user_id"], name: "index_kansai_reviews_on_user_id", using: :btree
+  end
+
+  create_table "kansais", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "content"
+    t.string   "title"
+    t.string   "image_url"
+    t.float    "latitude",   limit: 24
+    t.float    "longitude",  limit: 24
+    t.string   "hp_url"
+    t.string   "maker"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "kantou_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content"
-    t.string   "evaluation"
+    t.integer  "evaluation"
     t.integer  "user_id"
     t.integer  "kantou_id"
     t.datetime "created_at", null: false
@@ -46,13 +96,17 @@ ActiveRecord::Schema.define(version: 20180204121609) do
     t.string   "title"
     t.string   "content"
     t.string   "image_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.float    "latitude",   limit: 24
+    t.float    "longitude",  limit: 24
+    t.string   "hp_url"
+    t.string   "maker"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "koushinetsu_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content"
-    t.string   "evaluation"
+    t.integer  "evaluation"
     t.integer  "user_id"
     t.integer  "koushinetsu_id"
     t.datetime "created_at",     null: false
@@ -65,13 +119,63 @@ ActiveRecord::Schema.define(version: 20180204121609) do
     t.string   "content"
     t.string   "title"
     t.string   "image_url"
+    t.float    "latitude",   limit: 24
+    t.float    "longitude",  limit: 24
+    t.string   "hp_url"
+    t.string   "maker"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "sanin_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "content"
+    t.integer  "evaluation"
+    t.integer  "user_id"
+    t.integer  "sanin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["sanin_id"], name: "index_sanin_reviews_on_sanin_id", using: :btree
+    t.index ["user_id"], name: "index_sanin_reviews_on_user_id", using: :btree
+  end
+
+  create_table "sanins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "content"
+    t.string   "title"
+    t.string   "image_url"
+    t.float    "latitude",   limit: 24
+    t.float    "longitude",  limit: 24
+    t.string   "hp_url"
+    t.string   "maker"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "sanyo_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "content"
+    t.integer  "evaluation"
+    t.integer  "user_id"
+    t.integer  "sanyo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sanyo_id"], name: "index_sanyo_reviews_on_sanyo_id", using: :btree
+    t.index ["user_id"], name: "index_sanyo_reviews_on_user_id", using: :btree
+  end
+
+  create_table "sanyos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "content"
+    t.string   "title"
+    t.string   "image_url"
+    t.float    "latitude",   limit: 24
+    t.float    "longitude",  limit: 24
+    t.string   "hp_url"
+    t.string   "maker"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "touhoku_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "content"
-    t.string   "evaluation"
+    t.integer  "evaluation"
     t.integer  "user_id"
     t.integer  "touhoku_id"
     t.datetime "created_at", null: false
@@ -84,8 +188,35 @@ ActiveRecord::Schema.define(version: 20180204121609) do
     t.string   "title"
     t.string   "content"
     t.string   "image_url"
+    t.float    "latitude",   limit: 24
+    t.float    "longitude",  limit: 24
+    t.string   "hp_url"
+    t.string   "maker"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "toukai_reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "content"
+    t.integer  "evaluation"
+    t.integer  "user_id"
+    t.integer  "toukai_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["toukai_id"], name: "index_toukai_reviews_on_toukai_id", using: :btree
+    t.index ["user_id"], name: "index_toukai_reviews_on_user_id", using: :btree
+  end
+
+  create_table "toukais", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "content"
+    t.string   "title"
+    t.string   "image_url"
+    t.float    "latitude",   limit: 24
+    t.float    "longitude",  limit: 24
+    t.string   "hp_url"
+    t.string   "maker"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -100,10 +231,20 @@ ActiveRecord::Schema.define(version: 20180204121609) do
 
   add_foreign_key "hokkaido_reviews", "hokkaidos"
   add_foreign_key "hokkaido_reviews", "users"
+  add_foreign_key "hokuriku_reviews", "hokurikus"
+  add_foreign_key "hokuriku_reviews", "users"
+  add_foreign_key "kansai_reviews", "kansais"
+  add_foreign_key "kansai_reviews", "users"
   add_foreign_key "kantou_reviews", "kantous"
   add_foreign_key "kantou_reviews", "users"
   add_foreign_key "koushinetsu_reviews", "koushinetsus"
   add_foreign_key "koushinetsu_reviews", "users"
+  add_foreign_key "sanin_reviews", "sanins"
+  add_foreign_key "sanin_reviews", "users"
+  add_foreign_key "sanyo_reviews", "sanyos"
+  add_foreign_key "sanyo_reviews", "users"
   add_foreign_key "touhoku_reviews", "touhokus"
   add_foreign_key "touhoku_reviews", "users"
+  add_foreign_key "toukai_reviews", "toukais"
+  add_foreign_key "toukai_reviews", "users"
 end

@@ -1,0 +1,32 @@
+<div class="area sanin">
+  <h1>山陰の商品一覧</h1>
+
+  <div class="panel panel-default">
+    <br /><p>ここには、山陰エリアの。名産品が並んでいます。<br />島根を代表する出雲そばや、鳥取の白兎まんじゅうなどが存在します。</p>
+  </div>
+  <ul class="media-list">
+    <% @sanins.each do |sanin| %>
+      <div class="row">
+        <aside class="col-xs-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <li class="media">
+                <div>
+                  <%= sanin.id %> : <%= link_to sanin.title, sanin %>
+                </div>
+                <br />
+                <div>
+                  <%= sanin.content %>
+                </div>
+                <div>
+                  <%= image_tag(sanin.image_url,:size =>"200x150") %>
+                </div>
+              </li>
+            </div>
+          </div>
+        </aside>
+      </div>
+    <% end %>
+    <%= paginate @sanins %>
+  </ul>
+</div>

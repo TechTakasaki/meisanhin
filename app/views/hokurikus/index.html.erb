@@ -1,0 +1,32 @@
+<div class="area hokuriku">
+  <h1>北陸の商品一覧</h1>
+
+  <div class="panel panel-default">
+    <br /><p>ここには、北陸の名産品が並んでいます。<br />金沢の和菓子や、福井の羽二重餅などが存在します。</p>
+  </div>
+  <ul class="media-list">
+    <% @hokurikus.each do |hokuriku| %>
+      <div class="row">
+        <aside class="col-xs-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <li class="media">
+                <div>
+                  <%= link_to hokuriku.title, hokuriku %>
+                </div>
+                <br />
+                <div>
+                  <%= hokuriku.content %>
+                </div>
+                <div>
+                  <%= image_tag(hokuriku.image_url,:size =>"200x150") %>
+                </div>
+              </li>
+            </div>
+          </div>
+        </aside>
+      </div>
+    <% end %>
+    <%= paginate @hokurikus %>
+  </ul>
+</div>
