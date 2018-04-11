@@ -1,0 +1,45 @@
+<div class="area shikoku">
+  <h1><%= @shikoku.title %></h1>
+  <ul class="media-list">
+    <div class="row">
+      <aside class="col-xs-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <li class="media">
+              <img border="0" src="/images/<%= @shikoku.image_url %>" class="sample" width = "480" height = "320">
+              <h2>商品情報</h2>
+              <p><%= @shikoku.content %></p>
+              <p>製造元：<%= @shikoku.maker %></p>
+              <p>ホームページ：<a href="<%= @shikoku.hp_url %>"><%= @shikoku.maker %></a></p>
+              <br /><br />
+              <div style='width: 100%;'>
+                <div id="map" style='width: 100%; height: 45vh;'></div>
+              </div>
+              <p><span class="badge">平均評価：<%= @average_shikoku_reviews[@shikoku.id] %></span></p>
+              <%= link_to 'レビュー一覧', shikoku_shikoku_reviews_path(@shikoku, @shikoku_review), class: 'btn btn-primary' %> <span class="badge">レビュー：<%= @count_shikoku_reviews %>件</span>
+            </li>
+          </div>  
+        </div>
+      </aside>
+    </div>
+  </ul>
+</div>
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers([
+      {
+        "lat": <%= @shikoku.latitude %>,
+        "lng": <%= @shikoku.longitude %>,
+        "picture": {
+          "width":  32,
+          "height": 32
+        },
+        "infowindow": '<%= @shikoku.title %>'
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(15);
+  });
+</script>

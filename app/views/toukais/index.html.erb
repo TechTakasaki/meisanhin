@@ -2,7 +2,7 @@
   <h1>東海の商品一覧</h1>
 
   <div class="panel panel-default">
-    <br /><p>ここには、東海エリアの。名産品が並んでいます。<br />名古屋名物「ういろう」や伊勢名物「赤福」などがあります。</p>
+    <br /><p>ここには、東海エリアの名産品が並んでいます。<br />名古屋名物「ういろう」や伊勢名物「赤福」などがあります。</p>
   </div>
   <ul class="media-list">
     <% @toukais.each do |toukai| %>
@@ -12,7 +12,7 @@
             <div class="panel-heading">
               <li class="media">
                 <div>
-                  <%= toukai.id %> : <%= link_to toukai.title, toukai %>
+                  <%= link_to toukai.title, toukai %>
                 </div>
                 <br />
                 <div>

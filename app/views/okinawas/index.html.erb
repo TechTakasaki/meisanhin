@@ -1,25 +1,25 @@
-<div class="area kantou">
-  <h1関東の商品一覧</h1>
+<div class="area okinawa">
+  <h1>沖縄の商品一覧</h1>
 
   <div class="panel panel-default">
-    <br /><p>ここには、関東エリアの名産品が並んでいます。<br />崎陽軒のシウマイや、浅草の人形焼きなどがあります。</p>
+    <br /><p>南国リゾートの地・沖縄。<br />ここは、紫芋のタルトやちんすこうなどが有名です。</p>
   </div>
   <ul class="media-list">
-    <% @kantous.each do |kantou| %>
+    <% @okinawas.each do |okinawa| %>
       <div class="row">
         <aside class="col-xs-4">
           <div class="panel panel-default">
             <div class="panel-heading">
               <li class="media">
                 <div>
-                  <%= link_to kantou.title, kantou %>
+                  <%= link_to okinawa.title, okinawa %>
                 </div>
                 <br />
                 <div>
-                  <%= kantou.content %>
+                  <%= okinawa.content %>
                 </div>
                 <div>
-                  <%= image_tag(kantou.image_url,:size =>"200x150") %>
+                  <%= image_tag(okinawa.image_url,:size =>"200x150") %>
                 </div>
               </li>
             </div>
@@ -27,6 +27,6 @@
         </aside>
       </div>
     <% end %>
-    <%= paginate @kantous %>
+    <%= paginate @okinawas %>
   </ul>
 </div>

@@ -43,4 +43,16 @@ Rails.application.routes.draw do
   resources :sanins, only: [:index, :show], shallow: true do
     resources :sanin_reviews, only: [:index, :new, :create, :destroy]
   end
+  
+  resources :shikokus, only: [:index, :show], shallow: true do
+    resources :shikoku_reviews, only: [:index, :new, :create, :destroy]
+  end
+  
+  resources :kyushus, only: [:index, :show], shallow: true do
+    resources :kyushu_reviews, only: [:index, :new, :create, :destroy]
+  end
+  
+  resources :okinawas, only: [:index, :show], shallow: true do
+    resources :okinawa_reviews, only: [:index, :new, :create, :destroy]
+  end
 end

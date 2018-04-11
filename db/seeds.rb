@@ -1,3 +1,2 @@
-Sanin.create(:image_url => "因幡の白うさぎ.jpg", :title => "因幡の白うさぎ", :content => "出雲神話に登場する「因幡の白うさぎ」を模った、地元産のバターを使ったうさぎ饅頭です。", :maker => "寿製菓" , :hp_url => "http://www.okashinet.co.jp", :latitude => 35.4353, :longitude => 133.3129)
-Sanin.create(:image_url => "出雲そば.jpg", :title => "出雲そば", :content => "出雲の食文化を代表する物で、殻の付いたそばの実をそのまま製粉するため、通常のそばより黒っぽいです。")
-Sanin.create(:image_url => "さざえのへか.jpg", :title => "さざえのへか", :content => "牛肉の代わりにさざえを使った、すき焼き風の料理です。隠岐の島ではさざえが豊富に獲れます。")
+Okinawa.create(:image_url => "ちんすこう.jpg", :title => "ちんすこう", :content => "沖縄を代表するお菓子で、サクサク感がするので、まるで「沖縄のクッキー」です。", :maker => "新垣ちんすこう本舗" , :hp_url => "http://chinsuko.co.jp", :latitude => 26.2157, :longitude => 127.6840)
+Okinawa.create(:image_url => "紅芋タルト.jpg", :title => "紅芋タルト", :content => "沖縄の紅芋を余すところなく使ったタルトです。お土産として大人気です。", :maker => "御菓子御殿" , :hp_url => "http://www.okashigoten.co.jp/", :latitude => 26.4329, :longitude => 127.7187)

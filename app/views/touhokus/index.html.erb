@@ -2,7 +2,7 @@
   <h1>東北の商品一覧</h1>
 
   <div class="panel panel-default">
-    <br /><p>ここには、東北エリアの。名産品が並んでいます。<br />仙台名物笹かまぼこ・牛タン、秋田名物きりたんぽなどがあります。</p>
+    <br /><p>ここには、東北エリアの名産品が並んでいます。<br />仙台名物笹かまぼこ・牛タン、秋田名物きりたんぽなどがあります。</p>
   </div>
   <ul class="media-list">
     <% @touhokus.each do |touhoku| %>
@@ -12,7 +12,7 @@
             <div class="panel-heading">
               <li class="media">
                 <div>
-                  <%= touhoku.id %> : <%= link_to touhoku.title, touhoku %>
+                  <%= link_to touhoku.title, touhoku %>
                 </div>
                 <br />
                 <div>

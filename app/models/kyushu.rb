@@ -1,5 +1,5 @@
-class Sanin < ApplicationRecord
-  has_many :sanin_reviews
+class Kyushu < ApplicationRecord
+  has_many :kyushu_reviews
   
   validates :title, presence: true, length: { maximum: 20 }
   validates :content, presence: true, length: { maximum: 300 }

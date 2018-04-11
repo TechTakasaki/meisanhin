@@ -2,7 +2,7 @@
   <h1>山陽の商品一覧</h1>
 
   <div class="panel panel-default">
-    <br /><p>ここには、山陽エリアの。名産品が並んでいます。<br />全国的に有名なもみじ饅頭や、きびだんごなどが存在します。</p>
+    <br /><p>ここには、山陽エリアの名産品が並んでいます。<br />全国的に有名なもみじ饅頭や、きびだんごなどが存在します。</p>
   </div>
   <ul class="media-list">
     <% @sanyos.each do |sanyo| %>
@@ -12,7 +12,7 @@
             <div class="panel-heading">
               <li class="media">
                 <div>
-                  <%= sanyo.id %> : <%= link_to sanyo.title, sanyo %>
+                  <%= link_to sanyo.title, sanyo %>
                 </div>
                 <br />
                 <div>

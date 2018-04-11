@@ -1,0 +1,33 @@
+<div class="area shikoku">
+  <ul class="media-list">
+    <div>
+      <%= link_to 'レビューする', new_shikoku_shikoku_review_path(@shikoku, @shikoku_review), class: 'btn btn-primary' %>
+    </div><br />
+    <div class="panel panel-default">
+      <h2>レビュー一覧</h2>
+      <% @shikoku_reviews.each do |shikoku_review| %>
+        <% user = shikoku_review.user %>
+        <li class="media">
+          <div class="media-left">
+            <img class="media-object img-rounded" src="<%= gravatar_url(shikoku_review.user, options = { size: 50 }) %>" alt="">
+          </div>
+          <div class="media-body">
+            <div>
+              <%= link_to user.name, user_path(user) %> <span class="text-muted">posted at <%= shikoku_review.created_at %></span>
+            </div>
+            <div>
+              <p>評価：<%= shikoku_review.evaluation %></p>
+              <p><%= shikoku_review.content %></p>
+            </div>
+            <div>
+              <% if current_user == shikoku_review.user %>
+                <%= link_to 'このレビューを削除する', shikoku_review, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger btn-xs' %>
+              <% end %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </div>
+    <%= paginate @shikoku_reviews %>
+  </ul>
+</div>
