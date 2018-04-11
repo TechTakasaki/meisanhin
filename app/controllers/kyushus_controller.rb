@@ -1,10 +1,10 @@
 class KyushusController < ApplicationController
   def index
-    @kyushus = kyushu.all.page(params[:page])
+    @kyushus = Kyushu.all.page(params[:page])
   end
 
   def show
-    @kyushu = kyushu.find(params[:id])
+    @kyushu = Kyushu.find(params[:id])
     @kyushu_reviews = @kyushu.kyushu_reviews.order('created_at DESC').page(params[:page])
     counts(@kyushu)
     @kyushu_review = @kyushu.kyushu_reviews.order('created_at DESC').page(params[:page])
