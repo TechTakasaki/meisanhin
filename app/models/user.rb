@@ -7,4 +7,15 @@ class User < ApplicationRecord
   has_secure_password
   
   has_many :hokkaido_reviews
+  has_many :touhoku_reviews
+  has_many :kantou_reviews
+  has_many :toukai_reviews
+  has_many :hokuriku_reviews
+  has_many :koushinetsu_reviews
+  has_many :kansai_reviews
+  has_many :sanyo_reviews
+  has_many :sanin_reviews
+  has_many :shikoku_reviews
+  has_many :kyushu_reviews
+  has_many :okinawa_reviews
 end

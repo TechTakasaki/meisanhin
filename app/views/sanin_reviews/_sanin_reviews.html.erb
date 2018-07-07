@@ -5,6 +5,7 @@
     </div><br />
     <div class="panel panel-default">
       <h2>レビュー一覧</h2>
+      <%= link_to '戻る', @sanin, class: 'btn btn-primary' %>
       <% @sanin_reviews.each do |sanin_review| %>
         <% user = sanin_review.user %>
         <li class="media">

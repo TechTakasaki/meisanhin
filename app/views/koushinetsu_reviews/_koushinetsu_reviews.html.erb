@@ -5,11 +5,12 @@
     </div><br />
     <div class="panel panel-default">
       <h2>レビュー一覧</h2>
+      <%= link_to '戻る', @koushinetsu, class: 'btn btn-primary' %>
       <% @koushinetsu_reviews.each do |koushinetsu_review| %>
         <% user = koushinetsu_review.user %>
         <li class="media">
           <div class="media-left">
-            <img class="media-object img-rounded" src="<%= gravatar_url(kantou_review.user, options = { size: 50 }) %>" alt="">
+            <img class="media-object img-rounded" src="<%= gravatar_url(koushinetsu_review.user, options = { size: 50 }) %>" alt="">
           </div>
           <div class="media-body">
             <div>

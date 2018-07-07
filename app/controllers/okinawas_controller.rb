@@ -4,7 +4,7 @@ class OkinawasController < ApplicationController
   end
 
   def show
-    @okinawa = okinawa.find(params[:id])
+    @okinawa = Okinawa.find(params[:id])
     @okinawa_reviews = @okinawa.okinawa_reviews.order('created_at DESC').page(params[:page])
     counts(@okinawa)
     @okinawa_review = @okinawa.okinawa_reviews.order('created_at DESC').page(params[:page])

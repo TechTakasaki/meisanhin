@@ -5,6 +5,7 @@
     </div><br />
     <div class="panel panel-default">
       <h2>レビュー一覧</h2>
+      <%= link_to '戻る', @kyushu, class: 'btn btn-primary' %>
       <% @kyushu_reviews.each do |kyushu_review| %>
         <% user = kyushu_review.user %>
         <li class="media">
@@ -21,7 +22,7 @@
             </div>
             <div>
               <% if current_user == kyushu_review.user %>
-                <%= link_to 'このレビューを削除する', sanin_review, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger btn-xs' %>
+                <%= link_to 'このレビューを削除する', kyushu_review, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger btn-xs' %>
               <% end %>
             </div>
           </div>
